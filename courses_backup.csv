@@ -1,0 +1,12 @@
+id,course_id,course_name,instructor_id
+1,CS101,Introduction to Computer Science,6.0
+2,MATH201,Calculus I,6.0
+3,ENG301,English Literature,
+4,PHY101,General Physics,2.0
+5,CHEM101,General Chemistry,6.0
+6,BIO201,Cell Biology,5.0
+8,ART201,Modern Art,3.0
+9,PSY101,Introduction to Psychology,
+10,ECON201,Microeconomics,5.0
+11,222,aaaa,3.0
+12,HIST101,World History,9.0
