@@ -1,0 +1,39 @@
+{
+    "instructor": {
+        "name": "Louay Bazzi",
+        "age": 40,
+        "_email": "louaybazzi@mail.aub.edu",
+        "instructor_id": "97738",
+        "assigned_courses": [
+            "EECE 230",
+            "EECE 330"
+        ]
+    },
+    "courses": [
+        {
+            "course_id": "EECE 230",
+            "course_name": "Introduction to Programming",
+            "instructor_id": "97738",
+            "enrolled_students": [
+                "293292"
+            ]
+        },
+        {
+            "course_id": "EECE 330",
+            "course_name": "Data Structures",
+            "instructor_id": "97738",
+            "enrolled_students": []
+        }
+    ],
+    "students": [
+        {
+            "name": "Mansour",
+            "age": 19,
+            "_email": "mxa14@mail.aub.edu",
+            "student_id": "293292",
+            "registered_courses": [
+                "EECE 230"
+            ]
+        }
+    ]
+}
