@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tkinter_GUI module &mdash; EECE435L 0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8dde47fa"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="EECE435L Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EECE435L
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tkinter_GUI module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#school-management-system">School Management System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#main-application">Main Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.Course"><code class="docutils literal notranslate"><span class="pre">Course</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Course.course_id"><code class="docutils literal notranslate"><span class="pre">Course.course_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Course.course_name"><code class="docutils literal notranslate"><span class="pre">Course.course_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Course.instructor"><code class="docutils literal notranslate"><span class="pre">Course.instructor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Course.enrolled_students"><code class="docutils literal notranslate"><span class="pre">Course.enrolled_students</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Course.db_id"><code class="docutils literal notranslate"><span class="pre">Course.db_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Course.from_db_row"><code class="docutils literal notranslate"><span class="pre">Course.from_db_row()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Course.from_db_row()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.Instructor"><code class="docutils literal notranslate"><span class="pre">Instructor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Instructor.instructor_id"><code class="docutils literal notranslate"><span class="pre">Instructor.instructor_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Instructor.assigned_courses"><code class="docutils literal notranslate"><span class="pre">Instructor.assigned_courses</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Instructor.db_id"><code class="docutils literal notranslate"><span class="pre">Instructor.db_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Instructor.from_db_row"><code class="docutils literal notranslate"><span class="pre">Instructor.from_db_row()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Instructor.from_db_row()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.Person"><code class="docutils literal notranslate"><span class="pre">Person</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Person.name"><code class="docutils literal notranslate"><span class="pre">Person.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Person.age"><code class="docutils literal notranslate"><span class="pre">Person.age</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Person.email"><code class="docutils literal notranslate"><span class="pre">Person.email</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Person.introduce"><code class="docutils literal notranslate"><span class="pre">Person.introduce()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Person._validate_email"><code class="docutils literal notranslate"><span class="pre">Person._validate_email()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Person._validate_age"><code class="docutils literal notranslate"><span class="pre">Person._validate_age()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Person.introduce()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.Student"><code class="docutils literal notranslate"><span class="pre">Student</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Student.student_id"><code class="docutils literal notranslate"><span class="pre">Student.student_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Student.registered_courses"><code class="docutils literal notranslate"><span class="pre">Student.registered_courses</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Student.db_id"><code class="docutils literal notranslate"><span class="pre">Student.db_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Tkinter_GUI.Student.from_db_row"><code class="docutils literal notranslate"><span class="pre">Student.from_db_row()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Student.from_db_row()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.add_course"><code class="docutils literal notranslate"><span class="pre">add_course()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.add_instructor"><code class="docutils literal notranslate"><span class="pre">add_instructor()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.add_student"><code class="docutils literal notranslate"><span class="pre">add_student()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.assign_instructor_to_course"><code class="docutils literal notranslate"><span class="pre">assign_instructor_to_course()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.backup_database"><code class="docutils literal notranslate"><span class="pre">backup_database()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.create_tables"><code class="docutils literal notranslate"><span class="pre">create_tables()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.delete_course"><code class="docutils literal notranslate"><span class="pre">delete_course()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.delete_instructor"><code class="docutils literal notranslate"><span class="pre">delete_instructor()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.delete_student"><code class="docutils literal notranslate"><span class="pre">delete_student()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.load_database"><code class="docutils literal notranslate"><span class="pre">load_database()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.refresh_course_tree"><code class="docutils literal notranslate"><span class="pre">refresh_course_tree()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.refresh_instructor_tree"><code class="docutils literal notranslate"><span class="pre">refresh_instructor_tree()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.refresh_student_tree"><code class="docutils literal notranslate"><span class="pre">refresh_student_tree()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.register_student_for_course"><code class="docutils literal notranslate"><span class="pre">register_student_for_course()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.search_courses"><code class="docutils literal notranslate"><span class="pre">search_courses()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.search_instructors"><code class="docutils literal notranslate"><span class="pre">search_instructors()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.search_students"><code class="docutils literal notranslate"><span class="pre">search_students()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.show_assigned_courses"><code class="docutils literal notranslate"><span class="pre">show_assigned_courses()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.show_enrolled_students"><code class="docutils literal notranslate"><span class="pre">show_enrolled_students()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.show_student_courses"><code class="docutils literal notranslate"><span class="pre">show_student_courses()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.update_assign_course_options"><code class="docutils literal notranslate"><span class="pre">update_assign_course_options()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.update_course_instructor_options"><code class="docutils literal notranslate"><span class="pre">update_course_instructor_options()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.update_course_options"><code class="docutils literal notranslate"><span class="pre">update_course_options()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.update_instructor_options"><code class="docutils literal notranslate"><span class="pre">update_instructor_options()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.update_student_options"><code class="docutils literal notranslate"><span class="pre">update_student_options()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.validate_age"><code class="docutils literal notranslate"><span class="pre">validate_age()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tkinter_GUI.validate_email"><code class="docutils literal notranslate"><span class="pre">validate_email()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EECE435L</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tkinter_GUI module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Tkinter_GUI.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-Tkinter_GUI">
+<span id="tkinter-gui-module"></span><h1>Tkinter_GUI module<a class="headerlink" href="#module-Tkinter_GUI" title="Link to this heading"></a></h1>
+<section id="school-management-system">
+<h2>School Management System<a class="headerlink" href="#school-management-system" title="Link to this heading"></a></h2>
+<p>This module provides a GUI-based school management system using Tkinter and SQLite.
+It allows management of students, instructors, and courses.</p>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Person</dt><dd><p>Represents a person with a name, age, and email.</p>
+</dd>
+<dt>Student(Person)</dt><dd><p>Represents a student, inheriting from Person.</p>
+</dd>
+<dt>Instructor(Person)</dt><dd><p>Represents an instructor, inheriting from Person.</p>
+</dd>
+<dt>Course</dt><dd><p>Represents a course with a course ID, name, and optional instructor.</p>
+</dd>
+</dl>
+</section>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>create_tables()</dt><dd><p>Creates the necessary tables in the SQLite database.</p>
+</dd>
+<dt>validate_email(email)</dt><dd><p>Validates the format of an email address.</p>
+</dd>
+<dt>validate_age(age)</dt><dd><p>Validates that the age is a non-negative integer.</p>
+</dd>
+<dt>add_student()</dt><dd><p>Adds a student to the database and refreshes the student tree view.</p>
+</dd>
+<dt>refresh_student_tree()</dt><dd><p>Refreshes the student tree view with the current data from the database.</p>
+</dd>
+<dt>delete_student()</dt><dd><p>Deletes the selected student from the database and refreshes the student tree view.</p>
+</dd>
+</dl>
+</section>
+<section id="main-application">
+<h3>Main Application<a class="headerlink" href="#main-application" title="Link to this heading"></a></h3>
+<p>A Tkinter-based GUI application with tabs for managing students, instructors, and courses.</p>
+</section>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="Tkinter_GUI.Course">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">Course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.Course" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class used to represent a Course.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Course.course_id">
+<span class="sig-name descname"><span class="pre">course_id</span></span><a class="headerlink" href="#Tkinter_GUI.Course.course_id" title="Link to this definition"></a></dt>
+<dd><p>The unique ID of the course.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Course.course_name">
+<span class="sig-name descname"><span class="pre">course_name</span></span><a class="headerlink" href="#Tkinter_GUI.Course.course_name" title="Link to this definition"></a></dt>
+<dd><p>The name of the course.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Course.instructor">
+<span class="sig-name descname"><span class="pre">instructor</span></span><a class="headerlink" href="#Tkinter_GUI.Course.instructor" title="Link to this definition"></a></dt>
+<dd><p>The instructor assigned to the course (default is None).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#Tkinter_GUI.Instructor" title="Tkinter_GUI.Instructor">Instructor</a>, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Course.enrolled_students">
+<span class="sig-name descname"><span class="pre">enrolled_students</span></span><a class="headerlink" href="#Tkinter_GUI.Course.enrolled_students" title="Link to this definition"></a></dt>
+<dd><p>List of Student objects enrolled in the course.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Course.db_id">
+<span class="sig-name descname"><span class="pre">db_id</span></span><a class="headerlink" href="#Tkinter_GUI.Course.db_id" title="Link to this definition"></a></dt>
+<dd><p>The database ID of the course (default is None).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tkinter_GUI.Course.from_db_row">
+<span class="sig-name descname"><span class="pre">from_db_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Course.from_db_row"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.Course.from_db_row" title="Link to this definition"></a></dt>
+<dd><p>Creates a Course object from a database row.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_db_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Course.from_db_row"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Creates a Course object from a database row.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<em>tuple</em>) – A tuple containing course data from the database.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A Course object created from the database row.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#Tkinter_GUI.Course" title="Tkinter_GUI.Course">Course</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Tkinter_GUI.Instructor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">Instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.Instructor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Tkinter_GUI.Person" title="Tkinter_GUI.Person"><code class="xref py py-class docutils literal notranslate"><span class="pre">Person</span></code></a></p>
+<p>A class used to represent an Instructor, inheriting from Person.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Instructor.instructor_id">
+<span class="sig-name descname"><span class="pre">instructor_id</span></span><a class="headerlink" href="#Tkinter_GUI.Instructor.instructor_id" title="Link to this definition"></a></dt>
+<dd><p>The instructor’s unique ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Instructor.assigned_courses">
+<span class="sig-name descname"><span class="pre">assigned_courses</span></span><a class="headerlink" href="#Tkinter_GUI.Instructor.assigned_courses" title="Link to this definition"></a></dt>
+<dd><p>List of Course objects the instructor is assigned to.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Instructor.db_id">
+<span class="sig-name descname"><span class="pre">db_id</span></span><a class="headerlink" href="#Tkinter_GUI.Instructor.db_id" title="Link to this definition"></a></dt>
+<dd><p>The database ID of the instructor (default is None).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tkinter_GUI.Instructor.from_db_row">
+<span class="sig-name descname"><span class="pre">from_db_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Instructor.from_db_row"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.Instructor.from_db_row" title="Link to this definition"></a></dt>
+<dd><p>Creates an Instructor object from a database row.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_db_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Instructor.from_db_row"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Creates an Instructor object from a database row.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<em>tuple</em>) – A tuple containing instructor data from the database.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An Instructor object created from the database row.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#Tkinter_GUI.Instructor" title="Tkinter_GUI.Instructor">Instructor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Tkinter_GUI.Person">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">Person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Person"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.Person" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class used to represent a Person.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Person.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#Tkinter_GUI.Person.name" title="Link to this definition"></a></dt>
+<dd><p>The name of the person.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Person.age">
+<span class="sig-name descname"><span class="pre">age</span></span><a class="headerlink" href="#Tkinter_GUI.Person.age" title="Link to this definition"></a></dt>
+<dd><p>The age of the person.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Person.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#Tkinter_GUI.Person.email" title="Link to this definition"></a></dt>
+<dd><p>The email address of the person.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tkinter_GUI.Person.introduce">
+<span class="sig-name descname"><span class="pre">introduce</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Person.introduce"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.Person.introduce" title="Link to this definition"></a></dt>
+<dd><p>Prints an introduction message with the person’s name and age.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tkinter_GUI.Person._validate_email">
+<span class="sig-name descname"><span class="pre">_validate_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Person._validate_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.Person._validate_email" title="Link to this definition"></a></dt>
+<dd><p>Validates the email format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tkinter_GUI.Person._validate_age">
+<span class="sig-name descname"><span class="pre">_validate_age</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">age</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Person._validate_age"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.Person._validate_age" title="Link to this definition"></a></dt>
+<dd><p>Validates that the age is a non-negative integer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">introduce</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Person.introduce"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd><p>Prints an introduction message with the person’s name and age.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Tkinter_GUI.Student">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">Student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.Student" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Tkinter_GUI.Person" title="Tkinter_GUI.Person"><code class="xref py py-class docutils literal notranslate"><span class="pre">Person</span></code></a></p>
+<p>A class used to represent a Student, inheriting from Person.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Student.student_id">
+<span class="sig-name descname"><span class="pre">student_id</span></span><a class="headerlink" href="#Tkinter_GUI.Student.student_id" title="Link to this definition"></a></dt>
+<dd><p>The student’s unique ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Student.registered_courses">
+<span class="sig-name descname"><span class="pre">registered_courses</span></span><a class="headerlink" href="#Tkinter_GUI.Student.registered_courses" title="Link to this definition"></a></dt>
+<dd><p>List of Course objects the student is registered in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Tkinter_GUI.Student.db_id">
+<span class="sig-name descname"><span class="pre">db_id</span></span><a class="headerlink" href="#Tkinter_GUI.Student.db_id" title="Link to this definition"></a></dt>
+<dd><p>The database ID of the student (default is None).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Tkinter_GUI.Student.from_db_row">
+<span class="sig-name descname"><span class="pre">from_db_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Student.from_db_row"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.Student.from_db_row" title="Link to this definition"></a></dt>
+<dd><p>Creates a Student object from a database row.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_db_row</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">row</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#Student.from_db_row"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd><p>Creates a Student object from a database row.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<em>tuple</em>) – A tuple containing student data from the database.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A Student object created from the database row.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#Tkinter_GUI.Student" title="Tkinter_GUI.Student">Student</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.add_course">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">add_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#add_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.add_course" title="Link to this definition"></a></dt>
+<dd><p>Adds a course to the database and refreshes the course tree view.</p>
+<p>This function retrieves the data entered in the course form, validates it,
+and inserts it into the database. If the data is valid and the insertion is successful,
+the course tree view is refreshed to display the new course.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sqlite3.IntegrityError</strong> – If the course ID is not unique.</p></li>
+<li><p><strong>Exception</strong> – If any other error occurs during insertion.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.add_instructor">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">add_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#add_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.add_instructor" title="Link to this definition"></a></dt>
+<dd><p>Adds an instructor to the database and refreshes the instructor tree view.</p>
+<p>This function retrieves the data entered in the instructor form, validates it,
+and inserts it into the database. If the data is valid and the insertion is successful,
+the instructor tree view is refreshed to display the new instructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ValueError</strong> – If the entered age or email is invalid.</p></li>
+<li><p><strong>sqlite3.IntegrityError</strong> – If the instructor ID or email is not unique.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.add_student">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">add_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#add_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.add_student" title="Link to this definition"></a></dt>
+<dd><p>Adds a student to the database and refreshes the student tree view.</p>
+<p>This function retrieves the data entered in the student form, validates it,
+and inserts it into the database. If the data is valid and the insertion is successful,
+the student tree view is refreshed to display the new student.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ValueError</strong> – If the entered age or email is invalid.</p></li>
+<li><p><strong>sqlite3.IntegrityError</strong> – If the student ID or email is not unique.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.assign_instructor_to_course">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">assign_instructor_to_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#assign_instructor_to_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.assign_instructor_to_course" title="Link to this definition"></a></dt>
+<dd><p>Assigns an instructor to a selected course in the database.</p>
+<p>This function retrieves the selected instructor and course from the dropdown menus,
+updates the course record in the ‘courses’ table with the selected instructor,
+and commits the changes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>messagebox.showerror</strong> – If an error occurs during the assignment or if selections are invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.backup_database">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">backup_database</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#backup_database"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.backup_database" title="Link to this definition"></a></dt>
+<dd><p>Create a backup of the database.</p>
+<p>This function performs the following steps:</p>
+<ol class="arabic simple">
+<li><p>Commit any pending transactions.</p></li>
+<li><p>Open a file dialog to select the save location.</p></li>
+<li><p>Read data from each table into pandas DataFrames.</p></li>
+<li><p>Save each DataFrame to a CSV file in the selected folder.</p></li>
+<li><p>Show a success message upon completion.</p></li>
+</ol>
+<p>If any exception occurs, an error message is displayed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>messagebox.showerror</strong> – If an error occurs during the backup process.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.create_tables">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">create_tables</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#create_tables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.create_tables" title="Link to this definition"></a></dt>
+<dd><p>Creates the necessary tables in the SQLite database.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.delete_course">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">delete_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#delete_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.delete_course" title="Link to this definition"></a></dt>
+<dd><p>Deletes the selected course from the database and refreshes the course tree view.</p>
+<p>This function retrieves the selected course from the course tree view, deletes it
+from the ‘courses’ table in the database, and refreshes the tree view.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>messagebox.showerror</strong> – If no course is selected.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.delete_instructor">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">delete_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#delete_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.delete_instructor" title="Link to this definition"></a></dt>
+<dd><p>Deletes the selected instructor from the database and refreshes the instructor tree view.</p>
+<p>This function retrieves the selected instructor from the instructor tree view, deletes it
+from the ‘instructors’ table in the database, and refreshes the tree view.
+It also sets the instructor_id to NULL in the courses table where this instructor is assigned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>messagebox.showerror</strong> – If no instructor is selected.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.delete_student">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">delete_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#delete_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.delete_student" title="Link to this definition"></a></dt>
+<dd><p>Deletes the selected student from the database and refreshes the student tree view.</p>
+<p>This function retrieves the selected student from the student tree view, deletes it
+from the ‘students’ table in the database, and refreshes the tree view.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>messagebox.showerror</strong> – If no student is selected.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.load_database">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">load_database</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#load_database"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.load_database" title="Link to this definition"></a></dt>
+<dd><p>Load the database from backup CSV files.</p>
+<p>This function performs the following steps:</p>
+<ol class="arabic simple">
+<li><p>Open a file dialog to select the folder containing the backup CSV files.</p></li>
+<li><p>Check if all necessary CSV files are present in the selected folder.</p></li>
+<li><p>Read each CSV into a DataFrame.</p></li>
+<li><p>Begin a transaction and disable foreign key checks.</p></li>
+<li><p>Delete existing data and reset sequences.</p></li>
+<li><p>Insert data from DataFrames into the corresponding database tables.</p></li>
+<li><p>Re-enable foreign key checks and commit the transaction.</p></li>
+<li><p>Refresh the tree views to display the updated data.</p></li>
+<li><p>Show a success message upon completion.</p></li>
+</ol>
+<p>If any exception occurs, the transaction is rolled back and an error message is displayed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>messagebox.showerror</strong> – If an error occurs during the load process or if the backup files are not found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.refresh_course_tree">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">refresh_course_tree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#refresh_course_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.refresh_course_tree" title="Link to this definition"></a></dt>
+<dd><p>Refreshes the course tree view with the current data from the database.</p>
+<p>This function retrieves the current data from the ‘courses’ table in the database
+and updates the course tree view to display this data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.refresh_instructor_tree">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">refresh_instructor_tree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#refresh_instructor_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.refresh_instructor_tree" title="Link to this definition"></a></dt>
+<dd><p>Refreshes the instructor tree view with the current data from the database.</p>
+<p>This function retrieves the current data from the ‘instructors’ table in the database
+and updates the instructor tree view to display this data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.refresh_student_tree">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">refresh_student_tree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#refresh_student_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.refresh_student_tree" title="Link to this definition"></a></dt>
+<dd><p>Refreshes the student tree view with the current data from the database.</p>
+<p>This function retrieves the current data from the ‘students’ table in the database
+and updates the student tree view to display this data.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.register_student_for_course">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">register_student_for_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#register_student_for_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.register_student_for_course" title="Link to this definition"></a></dt>
+<dd><p>Registers a student for a selected course in the database.</p>
+<p>This function retrieves the selected student and course from the dropdown menus,
+inserts a new registration record into the ‘registrations’ table, and commits the changes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>messagebox.showerror</strong> – If an error occurs during registration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.search_courses">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">search_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#search_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.search_courses" title="Link to this definition"></a></dt>
+<dd><p>Searches and displays courses based on the query entered in the search box.</p>
+<p>This function retrieves courses from the ‘courses’ table in the database whose name or
+course ID matches the search query, and updates the course tree view to display these courses.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.search_instructors">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">search_instructors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#search_instructors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.search_instructors" title="Link to this definition"></a></dt>
+<dd><p>Searches and displays instructors based on the query entered in the search box.</p>
+<p>This function retrieves instructors from the ‘instructors’ table in the database whose name or
+instructor ID matches the search query, and updates the instructor tree view to display these instructors.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.search_students">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">search_students</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#search_students"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.search_students" title="Link to this definition"></a></dt>
+<dd><p>Searches and displays students based on the query entered in the search box.</p>
+<p>This function retrieves students from the ‘students’ table in the database whose name or
+student ID matches the search query, and updates the student tree view to display these students.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.show_assigned_courses">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">show_assigned_courses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#show_assigned_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.show_assigned_courses" title="Link to this definition"></a></dt>
+<dd><p>Display courses taught by the selected instructor.</p>
+<p>This function retrieves the courses assigned to the selected instructor
+and displays them in a new window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tk.Event</em>) – The event object containing information about the double-click event.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>messagebox.showerror</strong> – If no instructor is selected or an error occurs while fetching the data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.show_enrolled_students">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">show_enrolled_students</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#show_enrolled_students"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.show_enrolled_students" title="Link to this definition"></a></dt>
+<dd><p>Display enrolled students for the selected course.</p>
+<p>This function retrieves the students enrolled in the selected course
+and displays them in a new window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tk.Event</em>) – The event object containing information about the double-click event.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>messagebox.showerror</strong> – If no course is selected or an error occurs while fetching the data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.show_student_courses">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">show_student_courses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#show_student_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.show_student_courses" title="Link to this definition"></a></dt>
+<dd><p>Display courses enrolled by the selected student.</p>
+<p>This function retrieves the courses enrolled by the selected student
+and displays them in a new window.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>tk.Event</em>) – The event object containing information about the double-click event.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>messagebox.showerror</strong> – If no student is selected or an error occurs while fetching the data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.update_assign_course_options">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">update_assign_course_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#update_assign_course_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.update_assign_course_options" title="Link to this definition"></a></dt>
+<dd><p>Updates the course dropdown menu with current unassigned course options from the database.</p>
+<p>This function retrieves the current courses from the ‘courses’ table in the database
+where the instructor is not assigned, and updates the dropdown menu options to include these courses.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.update_course_instructor_options">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">update_course_instructor_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#update_course_instructor_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.update_course_instructor_options" title="Link to this definition"></a></dt>
+<dd><p>Updates the options in the instructor dropdown menu for the course form.</p>
+<p>This function retrieves the current instructors from the ‘instructors’ table in the database
+and updates the dropdown menu options to include these instructors.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.update_course_options">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">update_course_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#update_course_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.update_course_options" title="Link to this definition"></a></dt>
+<dd><p>Updates the course dropdown menu with current course options from the database.</p>
+<p>This function retrieves the current courses from the ‘courses’ table in the database
+and updates the dropdown menu options to include these courses.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.update_instructor_options">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">update_instructor_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#update_instructor_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.update_instructor_options" title="Link to this definition"></a></dt>
+<dd><p>Updates the instructor dropdown menu with current instructor options from the database.</p>
+<p>This function retrieves the current instructors from the ‘instructors’ table in the database
+and updates the dropdown menu options to include these instructors.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.update_student_options">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">update_student_options</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#update_student_options"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.update_student_options" title="Link to this definition"></a></dt>
+<dd><p>Updates the student dropdown menu with current student options from the database.</p>
+<p>This function retrieves the current students from the ‘students’ table in the database
+and updates the dropdown menu options to include these students.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.validate_age">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">validate_age</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">age</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#validate_age"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.validate_age" title="Link to this definition"></a></dt>
+<dd><p>Validates that the age is a non-negative integer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>age</strong> (<em>str</em>) – The age to validate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The validated age.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the age is not a non-negative integer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Tkinter_GUI.validate_email">
+<span class="sig-prename descclassname"><span class="pre">Tkinter_GUI.</span></span><span class="sig-name descname"><span class="pre">validate_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Tkinter_GUI.html#validate_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Tkinter_GUI.validate_email" title="Link to this definition"></a></dt>
+<dd><p>Validates the format of an email address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>email</strong> (<em>str</em>) – The email address to validate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The validated email address.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the email format is invalid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="EECE435L Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Mansour Allam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

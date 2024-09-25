@@ -1,0 +1,21 @@
+STUDENTS
+id,name,age,email,student_id
+1,Mansour,19,mxa,
+2,Mansour,19,mxa14@mail.aub.edu,20293030
+3,Karim,19,karimhajj@outlook.com,191932103
+
+SQLITE_SEQUENCE
+name,seq
+students,3
+courses,1
+
+INSTRUCTORS
+id,name,age,email,instructor_id
+
+COURSES
+id,course_id,course_name,instructor_id
+1,1920219,EECE 210,1292823
+
+REGISTRATIONS
+id,student_id,course_id
+

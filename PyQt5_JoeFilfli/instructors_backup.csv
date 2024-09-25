@@ -1,0 +1,19 @@
+id,name,age,email,instructor_id
+2,Prof. Daniel Hall,56,prof.danielhall@school.edu,INST397407
+3,Dr. Fiona Allen,59,dr.fionaallen@school.edu,INST339203
+4,Prof. George Young,37,prof.georgeyoung@example.com,INST476648
+5,Dr. Hannah King,51,dr.hannahking@school.edu,INST433601
+6,Prof. Ian Wright,47,prof.ianwright@mail.com,INST586899
+7,Dr. Julia Scott,63,dr.juliascott@mail.com,INST531960
+8,Prof. Kevin Green,49,prof.kevingreen@school.edu,INST506793
+9,Dr. Laura Baker,48,dr.laurabaker@school.edu,INST307431
+10,Prof. Michael Adams,49,prof.michaeladams@example.com,INST522805
+11,Dr. Emily Walker,21,dr.emilywalker@mail.com,INST881239
+12,Prof. Daniel Hall,34,prof.danielhall@example.com,INST228558
+13,Dr. Fiona Allen,35,dr.fionaallen@mail.com,INST493550
+14,Dr. Hannah King,60,dr.hannahking@mail.com,INST465542
+15,Prof. Ian Wright,59,prof.ianwright@example.com,INST113357
+16,Dr. Julia Scott,31,dr.juliascott@example.com,INST924751
+17,Prof. Kevin Green,45,prof.kevingreen@example.com,INST006204
+18,Dr. Laura Baker,27,dr.laurabaker@mail.com,INST075876
+19,Prof. Michael Adams,37,prof.michaeladams@school.edu,INST505260
