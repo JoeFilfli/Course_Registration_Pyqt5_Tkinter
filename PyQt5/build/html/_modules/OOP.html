@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OOP &mdash; EECE435L 0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=8dde47fa"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            EECE435L
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Tkinter_GUI.html">Tkinter_GUI module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">EECE435L</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">OOP</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for OOP</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Helper function for email validation</span>
+<div class="viewcode-block" id="is_valid_email">
+<a class="viewcode-back" href="../OOP.html#OOP.is_valid_email">[docs]</a>
+<span class="k">def</span> <span class="nf">is_valid_email</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$&#39;</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span></div>
+
+
+<span class="c1"># Helper function for non-negative age validation</span>
+<div class="viewcode-block" id="is_valid_age">
+<a class="viewcode-back" href="../OOP.html#OOP.is_valid_age">[docs]</a>
+<span class="k">def</span> <span class="nf">is_valid_age</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">0</span></div>
+
+
+<span class="c1"># Person class definition</span>
+<div class="viewcode-block" id="Person">
+<a class="viewcode-back" href="../OOP.html#OOP.Person">[docs]</a>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid_age</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Age must be a non-negative integer.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid_email</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid email format.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_email</span> <span class="o">=</span> <span class="n">email</span>  <span class="c1"># Private email attribute</span>
+
+<div class="viewcode-block" id="Person.introduce">
+<a class="viewcode-back" href="../OOP.html#OOP.Person.introduce">[docs]</a>
+    <span class="k">def</span> <span class="nf">introduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, my name is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, and I am </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old.&quot;</span><span class="p">)</span></div>
+</div>
+
+
+<span class="c1"># Student subclass definition</span>
+<div class="viewcode-block" id="Student">
+<a class="viewcode-back" href="../OOP.html#OOP.Student">[docs]</a>
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">student_id</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">student_id</span> <span class="o">=</span> <span class="n">student_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registered_courses</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="Student.enroll_in_course">
+<a class="viewcode-back" href="../OOP.html#OOP.Student.enroll_in_course">[docs]</a>
+    <span class="k">def</span> <span class="nf">enroll_in_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">course</span><span class="p">,</span> <span class="n">Course</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">registered_courses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">course</span><span class="p">)</span>
+            <span class="n">course</span><span class="o">.</span><span class="n">add_student</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid course object.&quot;</span><span class="p">)</span></div>
+</div>
+
+
+<span class="c1"># Instructor subclass definition</span>
+<div class="viewcode-block" id="Instructor">
+<a class="viewcode-back" href="../OOP.html#OOP.Instructor">[docs]</a>
+<span class="k">class</span> <span class="nc">Instructor</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">instructor_id</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instructor_id</span> <span class="o">=</span> <span class="n">instructor_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assigned_courses</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="Instructor.assign_course">
+<a class="viewcode-back" href="../OOP.html#OOP.Instructor.assign_course">[docs]</a>
+    <span class="k">def</span> <span class="nf">assign_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">course</span><span class="p">,</span> <span class="n">Course</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assigned_courses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">course</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid course object.&quot;</span><span class="p">)</span></div>
+</div>
+
+
+<span class="c1"># Course class definition</span>
+<div class="viewcode-block" id="Course">
+<a class="viewcode-back" href="../OOP.html#OOP.Course">[docs]</a>
+<span class="k">class</span> <span class="nc">Course</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course_id</span><span class="p">,</span> <span class="n">course_name</span><span class="p">,</span> <span class="n">instructor</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">instructor</span><span class="p">,</span> <span class="n">Instructor</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Instructor must be an instance of the Instructor class.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">course_id</span> <span class="o">=</span> <span class="n">course_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">course_name</span> <span class="o">=</span> <span class="n">course_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instructor</span> <span class="o">=</span> <span class="n">instructor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enrolled_students</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="Course.add_student">
+<a class="viewcode-back" href="../OOP.html#OOP.Course.add_student">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_student</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">student</span><span class="p">,</span> <span class="n">Student</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">enrolled_students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">student</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid student object.&quot;</span><span class="p">)</span></div>
+</div>
+
+
+<span class="c1"># Serialization: Flatten objects and save data to a JSON file</span>
+<div class="viewcode-block" id="save_to_file">
+<a class="viewcode-back" href="../OOP.html#OOP.save_to_file">[docs]</a>
+<span class="k">def</span> <span class="nf">save_to_file</span><span class="p">(</span><span class="n">instructor</span><span class="p">,</span> <span class="n">courses</span><span class="p">,</span> <span class="n">students</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;instructor&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">instructor</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="n">instructor</span><span class="o">.</span><span class="n">age</span><span class="p">,</span>
+            <span class="s2">&quot;_email&quot;</span><span class="p">:</span> <span class="n">instructor</span><span class="o">.</span><span class="n">_email</span><span class="p">,</span>
+            <span class="s2">&quot;instructor_id&quot;</span><span class="p">:</span> <span class="n">instructor</span><span class="o">.</span><span class="n">instructor_id</span><span class="p">,</span>
+            <span class="s2">&quot;assigned_courses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">course</span><span class="o">.</span><span class="n">course_id</span> <span class="k">for</span> <span class="n">course</span> <span class="ow">in</span> <span class="n">instructor</span><span class="o">.</span><span class="n">assigned_courses</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;courses&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;course_id&quot;</span><span class="p">:</span> <span class="n">course</span><span class="o">.</span><span class="n">course_id</span><span class="p">,</span>
+                <span class="s2">&quot;course_name&quot;</span><span class="p">:</span> <span class="n">course</span><span class="o">.</span><span class="n">course_name</span><span class="p">,</span>
+                <span class="s2">&quot;instructor_id&quot;</span><span class="p">:</span> <span class="n">course</span><span class="o">.</span><span class="n">instructor</span><span class="o">.</span><span class="n">instructor_id</span><span class="p">,</span>
+                <span class="s2">&quot;enrolled_students&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">student</span><span class="o">.</span><span class="n">student_id</span> <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">course</span><span class="o">.</span><span class="n">enrolled_students</span><span class="p">]</span>
+            <span class="p">}</span> <span class="k">for</span> <span class="n">course</span> <span class="ow">in</span> <span class="n">courses</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;students&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">student</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="n">student</span><span class="o">.</span><span class="n">age</span><span class="p">,</span>
+                <span class="s2">&quot;_email&quot;</span><span class="p">:</span> <span class="n">student</span><span class="o">.</span><span class="n">_email</span><span class="p">,</span>
+                <span class="s2">&quot;student_id&quot;</span><span class="p">:</span> <span class="n">student</span><span class="o">.</span><span class="n">student_id</span><span class="p">,</span>
+                <span class="s2">&quot;registered_courses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">course</span><span class="o">.</span><span class="n">course_id</span> <span class="k">for</span> <span class="n">course</span> <span class="ow">in</span> <span class="n">student</span><span class="o">.</span><span class="n">registered_courses</span><span class="p">]</span>
+            <span class="p">}</span> <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">students</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span></div>
+
+
+<span class="c1"># Deserialization: Rebuild the objects from the JSON file</span>
+<div class="viewcode-block" id="load_from_file">
+<a class="viewcode-back" href="../OOP.html#OOP.load_from_file">[docs]</a>
+<span class="k">def</span> <span class="nf">load_from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+    <span class="n">instructor_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;instructor&quot;</span><span class="p">]</span>
+    <span class="n">instructor</span> <span class="o">=</span> <span class="n">Instructor</span><span class="p">(</span><span class="n">instructor_data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">instructor_data</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">],</span> <span class="n">instructor_data</span><span class="p">[</span><span class="s2">&quot;_email&quot;</span><span class="p">],</span> <span class="n">instructor_data</span><span class="p">[</span><span class="s2">&quot;instructor_id&quot;</span><span class="p">])</span>
+
+    <span class="n">course_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">course_data</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;courses&quot;</span><span class="p">]:</span>
+        <span class="n">course</span> <span class="o">=</span> <span class="n">Course</span><span class="p">(</span><span class="n">course_data</span><span class="p">[</span><span class="s2">&quot;course_id&quot;</span><span class="p">],</span> <span class="n">course_data</span><span class="p">[</span><span class="s2">&quot;course_name&quot;</span><span class="p">],</span> <span class="n">instructor</span><span class="p">)</span>
+        <span class="n">course_dict</span><span class="p">[</span><span class="n">course</span><span class="o">.</span><span class="n">course_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">course</span>
+
+    <span class="n">student_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">student_data</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;students&quot;</span><span class="p">]:</span>
+        <span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="n">student_data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">student_data</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">],</span> <span class="n">student_data</span><span class="p">[</span><span class="s2">&quot;_email&quot;</span><span class="p">],</span> <span class="n">student_data</span><span class="p">[</span><span class="s2">&quot;student_id&quot;</span><span class="p">])</span>
+        <span class="n">student_dict</span><span class="p">[</span><span class="n">student</span><span class="o">.</span><span class="n">student_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">student</span>
+        <span class="k">for</span> <span class="n">course_id</span> <span class="ow">in</span> <span class="n">student_data</span><span class="p">[</span><span class="s2">&quot;registered_courses&quot;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">course_id</span> <span class="ow">in</span> <span class="n">course_dict</span><span class="p">:</span>
+                <span class="n">student</span><span class="o">.</span><span class="n">enroll_in_course</span><span class="p">(</span><span class="n">course_dict</span><span class="p">[</span><span class="n">course_id</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">course_id</span> <span class="ow">in</span> <span class="n">instructor_data</span><span class="p">[</span><span class="s2">&quot;assigned_courses&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">course_id</span> <span class="ow">in</span> <span class="n">course_dict</span><span class="p">:</span>
+            <span class="n">instructor</span><span class="o">.</span><span class="n">assign_course</span><span class="p">(</span><span class="n">course_dict</span><span class="p">[</span><span class="n">course_id</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">instructor</span><span class="p">,</span> <span class="n">course_dict</span><span class="p">,</span> <span class="n">student_dict</span></div>
+
+
+<span class="c1"># Example usage</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">instructor</span> <span class="o">=</span> <span class="n">Instructor</span><span class="p">(</span><span class="s2">&quot;Louay Bazzi&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;louaybazzi@mail.aub.edu&quot;</span><span class="p">,</span> <span class="s2">&quot;97738&quot;</span><span class="p">)</span>
+    <span class="n">course1</span> <span class="o">=</span> <span class="n">Course</span><span class="p">(</span><span class="s2">&quot;EECE 230&quot;</span><span class="p">,</span> <span class="s2">&quot;Introduction to Programming&quot;</span><span class="p">,</span> <span class="n">instructor</span><span class="p">)</span>
+    <span class="n">course2</span> <span class="o">=</span> <span class="n">Course</span><span class="p">(</span><span class="s2">&quot;EECE 330&quot;</span><span class="p">,</span> <span class="s2">&quot;Data Structures&quot;</span><span class="p">,</span> <span class="n">instructor</span><span class="p">)</span>
+    <span class="n">instructor</span><span class="o">.</span><span class="n">assign_course</span><span class="p">(</span><span class="n">course1</span><span class="p">)</span>
+    <span class="n">instructor</span><span class="o">.</span><span class="n">assign_course</span><span class="p">(</span><span class="n">course2</span><span class="p">)</span>
+
+    <span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Mansour&quot;</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="s2">&quot;mxa14@mail.aub.edu&quot;</span><span class="p">,</span> <span class="s2">&quot;293292&quot;</span><span class="p">)</span>
+    <span class="n">student</span><span class="o">.</span><span class="n">enroll_in_course</span><span class="p">(</span><span class="n">course1</span><span class="p">)</span>
+
+    <span class="n">save_to_file</span><span class="p">(</span><span class="n">instructor</span><span class="p">,</span> <span class="p">[</span><span class="n">course1</span><span class="p">,</span> <span class="n">course2</span><span class="p">],</span> <span class="p">[</span><span class="n">student</span><span class="p">],</span> <span class="s1">&#39;school_data.json&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data saved to school_data.json&quot;</span><span class="p">)</span>
+
+    <span class="n">instructor</span><span class="p">,</span> <span class="n">courses</span><span class="p">,</span> <span class="n">students</span> <span class="o">=</span> <span class="n">load_from_file</span><span class="p">(</span><span class="s1">&#39;school_data.json&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Instructor: </span><span class="si">{</span><span class="n">instructor</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, Assigned Courses: </span><span class="si">{</span><span class="p">[</span><span class="n">course</span><span class="o">.</span><span class="n">course_name</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">course</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">instructor</span><span class="o">.</span><span class="n">assigned_courses</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">student_id</span><span class="p">,</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">students</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Student: </span><span class="si">{</span><span class="n">student</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, Registered Courses: </span><span class="si">{</span><span class="p">[</span><span class="n">course</span><span class="o">.</span><span class="n">course_name</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">course</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">student</span><span class="o">.</span><span class="n">registered_courses</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Mansour Allam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
